@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10"></div>
+    <div class="col-sm-2">
+        <br>
+        <a href= {{ url_for('index') }} class="btn btn-outline-secondary">Назад</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-5">
+        <h2 align="center">{{ title }}</h2>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+
+      <table class="table table-bordered table-sm" >
+        <thead class="table-light">
+          <tr>
+            <th scope="col">Дата</th>
+            <th scope="col">Начислено</th>
+            <th scope="col">Оплачено</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% for data in dataset %}
+            <tr >
+              {% if (data.data_type == 'Начислено') %}
+                <td >{{ data.date }}</td>
+                <td scope="row" >{{ data.value }}</td>
+                <td ></td>
+              {% else %}
+                <td >{{ data.date }}</td>
+                <td ></td>
+                <td scope="row" >{{ data.value }}</td>
+              {% endif %}
+            </tr>
+          {% endfor%}
+        </tbody>
+          {% if result %}
+            {% if (result > 0) %}
+              Итого задолженность: {{ result }}
+            {% elif (result < 0) %}
+              Итого переплата: {{ result }}
+            {% else %}
+              Никто никому ничего не должен!
+            {% endif %}
+          {% endif %}
+      </table>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>
+<br>
+
+
+
+{% endblock %}

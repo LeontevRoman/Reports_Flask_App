@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+              <h1>Привет, хозяйка!</h1>
+            </div>
+        </div>
+    </div> <br>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <a href= {{ url_for('views') }} class="btn btn-outline-success">Показать сверку</a>
+
+            </div>
+        </div> <br>
+    </div><div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <a href= {{ url_for('add') }} class="btn btn-outline-danger">Добавить показания</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
