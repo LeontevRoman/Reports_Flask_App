@@ -8,6 +8,6 @@ Quick start for Windows:
 - python report.py
 
 stack:
-python 3.11.4
-flask 2.3.3
-sqlite3
+- python 3.11.4
+- flask 2.3.3
+- sqlite3
